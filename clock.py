@@ -40,7 +40,7 @@ class Count:
         # list of the functions
         fList = [self.numZero, self.numOne]
         try:
-            for f in fList
+            for f in fList:
                 f()
         finally:
             gpio.cleanup()
