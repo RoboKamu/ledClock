@@ -24,26 +24,26 @@ class Count:
 
         for LED in LEDList:
             gpio.output(LED, True)  # turn on all LEDs required for zero
-
         sleep(1)
 
         for LED in LEDList:
             gpio.output(LED, False)  # turn off all LEDs required for zero
+        sleep(0.5)
 
     def numOne(self):
         # number one only needs one line on either side, either left or right
         gpio.output(8, True)
         sleep(1)
         gpio.output(8, False)
-
+        sleep(0.5)
     def ans(self):
         # list of the functions
-        fList = [numZero, numOne]
+        fList = [self.numZero, self.numOne]
         try:
-            for f in range(0, self.num):
-                fList[f]()
+            for f in fList
+                f()
         finally:
             gpio.cleanup()
 
 a = Count(2)
-a.ans()
+print(a.ans())
