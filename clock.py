@@ -44,3 +44,8 @@ class Count:
 				fList[f]()
 		finally:
 			gpio.cleanup()
+
+
+ui = int(input("how much do you want to count up to? ")			
+a = Count(ui)
+print(a.ans())
