@@ -72,7 +72,7 @@ class Count:
 
     def ans(self):
         # list of the functions
-        fList = [self.numZero, self.numOne, self.numThree()]
+        fList = [self.numZero, self.numOne, self.numThree]
         try:
             for f in range(0, self.num):
                 fList[f]()
