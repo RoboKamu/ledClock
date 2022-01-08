@@ -29,7 +29,8 @@ class Count:
             self.topMid,
             self.topRight,
             self.topLeft,
-            self.botMid]
+            self.botMid
+            ]
 
         for led in ledList:
             gpio.output(led, True)  # turn on all LEDs required for zero
@@ -44,9 +45,27 @@ class Count:
         gpio.output(self.topRight, True)
         gpio.output(self.botRight, True)
         sleep(1)
-
+        # turn LEDs off
         gpio.output(self.topRight, False)
         gpio.output(self.botRight, False)
+        sleep(0.5)
+
+    def numTwo(self):
+        # list of all pins used for number 2
+        ledList = [
+            self.topMid,
+            self.mid,
+            self.botMid,
+            self.topRight,
+            self.botLeft
+            ]
+
+        for led in ledList:
+            gpio.output(led, True)      # turn on LEDs to make number 2
+        sleep(1)
+
+        for led in ledList:
+            gpio.output(led, False)     # turn them off
         sleep(0.5)
 
     def numThree(self):
@@ -56,29 +75,138 @@ class Count:
             self.mid,
             self.botMid,
             self.topRight,
-            self.botRight]
+            self.botRight
+            ]
 
         for led in ledList:
-            gpio.output(led, True)
+            gpio.output(led, True)      # turn LEDs on to make number three
         sleep(1)
 
         for led in ledList:
-            gpio.output(led, False)
+            gpio.output(led, False)     # turn LEDs off
         sleep(0.5)
 
     def numFour(self):
         # list of all pins used for number 4
-        ledList = []
+        ledList = [
+            self.topLeft,
+            self.topRight,
+            self.botRight,
+            self.mid
+            ]
 
-    def ans(self):
+        for led in ledList:
+            gpio.output(led, True)      # turn on LEDs to make number 4
+        sleep(1)
+
+        for led in ledList:
+            gpio.output(led, False)     # turn off LEDs
+        sleep(0.5)
+
+    def numFive(self):
+        # list of all pins used for number 5
+        ledList = [
+            self.topMid,
+            self.mid,
+            self.botMid,
+            self.topLeft,
+            self.botRight
+            ]
+
+        for led in ledList:
+            gpio.output(led, True)      # turn on LEDs to make number 5
+        sleep(1)
+
+        for led in ledList:
+            gpio.output(led, False)     # turn off LEDs
+        sleep(0.5)
+
+    def numSix(self):
+        # List of pins used to make number 6
+        ledList = [
+            self.topMid,
+            self.mid,
+            self.botMid,
+            self.topLeft,
+            self.botLeft,
+            self.botRight
+            ]
+
+        for led in ledList:
+            gpio.output(led, True)      # turn on LEDs to make number 6
+        sleep(1)
+
+        for led in ledList:
+            gpio.output(led, False)     # turn off LEDs
+        sleep(0.5)
+
+    def numSeven(self):
+        # list of pins used to make number 7
+        ledList = [
+            self.topMid,
+            self.topRight,
+            self.botRight
+            ]
+
+        for led in ledList:
+            gpio.output(led, True)      # turn on LEDs to make number 7
+        sleep(1)
+
+        for led in ledList:
+            gpio.output(led, False)     # turn off LEDs
+        sleep(0.5)
+
+    def numEight(self):
+        # 8 uses all pins therefore we can use the list "pins" used in line 6 and turn all of them on and off
+        for led in pins:
+            gpio.output(led, True)      # turn all LEDs on to make 8
+        sleep(1)
+
+        for led in pins:
+            gpio.output(led, False)     # tunr all LEDs off
+        sleep(0.5)
+
+    def numNine(self):
+        # list of pins used to make number 9
+        ledList = [
+            self.topMid,
+            self.mid,
+            self.topLeft,
+            self.topRight,
+            self.botRight
+            ]
+
+        for led in ledList:
+            gpio.output(led, True)      # turn LEDs on to make number 9
+        sleep(1)
+
+        for led in ledList:
+            gpio.output(led, False)     # turn LEDs off
+        sleep(0.5)
+
+    def results(self):
         # list of the functions
-        fList = [self.numZero, self.numOne, self.numThree]
+        fList = [
+            self.numZero, self.numOne, self.numThree,
+            self.numFour, self.numFive, self.numSix,
+            self.numSeven, self.numEight, self.numNine
+            ]
+
         try:
-            for f in range(0, self.num):
+            # make a loop to count to their input
+            for f in range(0, self.num+1):
                 fList[f]()
         finally:
             gpio.cleanup()
 
 
-a = Count(3)
-print(a.ans())
+# get user input and print the results
+num = int(input("Vilket nummer vill du räkna till från 0 till 9? \n"))
+
+# Let the user try again if the input is out of range
+while num < 0 or num > 9:
+    print("Skriv gärna in ett nummer från 0 till 9: ")
+    num = int(input())
+    
+ans = Count(num)
+print(ans.results())
