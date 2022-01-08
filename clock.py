@@ -187,7 +187,7 @@ class Count:
     def results(self):
         # list of the functions
         fList = [
-            self.numZero, self.numOne, self.numThree,
+            self.numZero, self.numOne, self.numTwo, self.numThree,
             self.numFour, self.numFive, self.numSix,
             self.numSeven, self.numEight, self.numNine
             ]
