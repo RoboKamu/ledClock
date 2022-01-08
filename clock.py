@@ -205,7 +205,7 @@ num = int(input("What number do you want to count to? (0, 9): "))
 
 # Let the user try again if the input is out of range
 while num < 0 or num > 9:
-    print("Skriv gärna in ett nummer från 0 till 9: ")
+    print("Please try again and write a number from 0 to 9:  ")
     num = int(input())
     
 ans = Count(num)
