@@ -201,7 +201,7 @@ class Count:
 
 
 # get user input and print the results
-num = int(input("Vilket nummer vill du räkna till från 0 till 9? \n"))
+num = int(input("What number do you want to count to? (0, 9): "))
 
 # Let the user try again if the input is out of range
 while num < 0 or num > 9:
