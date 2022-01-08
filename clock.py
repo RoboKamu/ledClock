@@ -197,16 +197,18 @@ class Count:
             for f in range(0, self.num+1):
                 fList[f]()
         finally:
-            gpio.cleanup()
+            if gpio.cleanup() != None:
+                gpio.cleanup()
 
 
-# get user input and print the results
+# get user input
 num = int(input("What number do you want to count to? (0, 9): "))
 
 # Let the user try again if the input is out of range
 while num < 0 or num > 9:
     print("Please try again and write a number from 0 to 9:  ")
     num = int(input())
-    
+
+#print the results
 ans = Count(num)
 print(ans.results())
