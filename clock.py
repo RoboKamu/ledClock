@@ -72,7 +72,7 @@ class Count:
 
     def ans(self):
         # list of the functions
-        fList = [self.numZero, self.numOne]
+        fList = [self.numZero, self.numOne, self.numThree()]
         try:
             for f in range(0, self.num):
                 fList[f]()
@@ -80,5 +80,5 @@ class Count:
             gpio.cleanup()
 
 
-a = Count(4)
+a = Count(3)
 print(a.ans())
