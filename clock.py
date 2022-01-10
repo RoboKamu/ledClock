@@ -193,16 +193,16 @@ class Count:
             ]
 
         try:
-            # make a loop to count to their input
-            for f in range(0, self.num+1):
+            # make a loop for the countdown
+            for f in range(self.num, -1):
                 fList[f]()
         finally:
-            if gpio.cleanup() != None:
-                gpio.cleanup()
+            #clean up the pins
+            gpio.cleanup()
 
 
 # get user input
-num = int(input("What number do you want to count to? (0, 9): "))
+num = int(input("What number do you want to count down from? (0, 9): "))
 
 # Let the user try again if the input is out of range
 while num < 0 or num > 9:
@@ -210,5 +210,6 @@ while num < 0 or num > 9:
     num = int(input())
 
 #print the results
-ans = Count(num)
-print(ans.results())
+if __name__ == "__main__":
+    ans = Count(num)
+    print(ans.results())
