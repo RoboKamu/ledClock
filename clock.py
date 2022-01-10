@@ -194,7 +194,7 @@ class Count:
 
         try:
             # make a loop for the countdown
-            for f in range(self.num, -1):
+            for f in range(self.num, -1, -1):
                 fList[f]()
         finally:
             #clean up the pins
